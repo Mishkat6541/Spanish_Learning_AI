@@ -1,0 +1,125 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body and main styles */
+  body {
+    background-color: #f4f4f9;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  header .logo h1 {
+    font-size: 2rem;
+  }
+  
+  header .auth .login-btn {
+    background-color: #fff;
+    color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  header .auth .login-btn:hover {
+    background-color: #45a049;
+    color: white;
+  }
+  
+  /* Main Section Styles */
+  main {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .hero {
+    margin-bottom: 2rem;
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .features {
+    margin-top: 2rem;
+  }
+  
+  .features h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .features ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .features ul li {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  /* Call to Action (CTA) Section */
+  .cta {
+    margin-top: 3rem;
+    background-color: #4CAF50;
+    padding: 2rem;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .cta h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta .signup-btn {
+    background-color: #fff;
+    color: #4CAF50;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .cta .signup-btn:hover {
+    background-color: #45a049;
+    color: white;
+  }
+  
+  /* Footer Section */
+  footer {
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+  }
+  

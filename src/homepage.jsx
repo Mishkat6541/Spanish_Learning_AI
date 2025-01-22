@@ -1,120 +1,50 @@
-import './style.css';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './homepage.css'; // Ensure this points to the correct CSS file
 
-
-
-const LoginRegister = () => {
-  const [isLogin, setIsLogin] = useState(true); 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState(''); 
-  const [message, setMessage] = useState('');
-
-  const navigate = useNavigate();
-  
-  const toggleForm = () => {
-    setIsLogin(!isLogin); 
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault(); 
-
-    const url = isLogin ? 'https://messaging-app-pdi8.onrender.com/login' : 'https://messaging-app-pdi8.onrender.com/register';
-    const body = isLogin
-      ? { email, password }
-      : { name, email, password };
-
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setMessage(data.message || 'Welcome!');
-      if (!isLogin) {
-        navigate('/');
-      } else {
-        navigate('/dashboard');
-      }
-    } else {
-      setMessage(data.message || 'Something went wrong');
-    }
-  };
-
+function Home() {
   return (
-    <div className="auth-container">
-      <header className="app-header">
-        <h1>Mishkat Messaging App</h1>
+    <div className="App">
+      {/* Header Section */}
+      <header>
+        <div className="logo">
+          <h1>Spanish Learn</h1>
+        </div>
+        <div className="auth">
+          <Link to="/login" className="login-btn">Login / Sign In</Link>
+        </div>
       </header>
 
-      <div className={`auth-box ${isLogin ? 'login-mode' : 'register-mode'}`}>
-        <h2>{isLogin ? 'Login' : 'Register'}</h2>
+      {/* Main Content Section */}
+      <main>
+        <section className="hero">
+          <h2>Master Spanish, Open New Opportunities</h2>
+          <p>Start learning today with easy-to-follow lessons, quizzes, and more!</p>
+        </section>
 
-        <form onSubmit={handleSubmit}>
-          {!isLogin && (
-            <div className="input-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter your name"
-                required
-              />
-            </div>
-          )}
+        <section className="features">
+          <h3>Why Learn Spanish?</h3>
+          <ul>
+            <li>Enhance your career prospects</li>
+            <li>Travel with confidence</li>
+            <li>Expand your cultural knowledge</li>
+            <li>Make new connections worldwide</li>
+          </ul>
+        </section>
 
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
-            />
-          </div>
+        <section className="cta">
+          <h3>Join Us Today and Start Your Language Journey!</h3>
+          <p>Learning Spanish has never been more accessible. Let's begin your path to fluency!</p>
+          <Link to="/signup" className="signup-btn">Get Started</Link>
+        </section>
+      </main>
 
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-
-          <button type="submit" className="btn">
-            {isLogin ? 'Login' : 'Register'}
-          </button>
-        </form>
-
-        <p className="toggle-text">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}
-          <span onClick={toggleForm} className="toggle-link">
-            {isLogin ? ' Register here' : ' Login here'}
-          </span>
-        </p>
-
-        {message && <p className="message">{message}</p>}
-      </div>
+      {/* Footer Section */}
+      <footer>
+        <p>© 2025 Spanish Learn | All Rights Reserved</p>
+      </footer>
     </div>
   );
-};
+}
 
-// hello person looking at my code :D
-export default LoginRegister;
+export default Home;
